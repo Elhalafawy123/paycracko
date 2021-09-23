@@ -3,6 +3,6 @@ it dependes on msfvenom .
 ----------------------------------------------
 requirment *
 - chmod +x pocracko.sh
-- run it as sudo 
+- sudo ./pocracko.sh
 -----------------------------------------------
 Created by Yousef El-Halafawy
